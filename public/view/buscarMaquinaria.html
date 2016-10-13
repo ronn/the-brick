@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+
+<html ng-app="buscarMaquinariaApp">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Buscar Maquinaria</title>
+        <link href = "../css/style.css" rel = "stylesheet" type = "text/css">
+        <link rel="shortcut icon" type="image/x-icon" href="../images/icon.png" />
+        <script type="text/javascript" src="../js/angular.min.js"></script>
+        <script type="text/javascript" src="../js/buscarMaquinariaController.js"></script>
+
+    	<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet"/>
+	
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"   
+			integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   
+			crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    </head>
+
+    <body ng-controller="buscarMaquinariaController">
+    <div ng-include="'menuAndFooter.html'"></div>
+    <section class="wrapper">
+
+        <!--contenido de la página-->
+        <article id="container">
+        </br>
+            <h2>Buscar Maquinaria</h2>
+            <hr>
+            <h3 id="respuesta"></h3>
+            <!--Formulario-->
+            <form id="searchMaquinariaForm" onsubmit="return false">
+            	<label for="codigo">Código*</label><br/>
+                <input ng-model="id" id="codigo" name="codigo" type="number" class="field" placeholder="Código" required>
+                <button ng-click="imprimir()" class="boton">Buscar</button>
+            </form>
+			<hr>
+
+            <form ng-show="mostrar" id="editMaquinariaForm" onsubmit="return false">
+                <table><!--Tabla para dividir en columnas-->
+                    <tr><!--Columnas-->
+                        <td><label for="tipoMaquinaria">Tipo de Maquinaria*</label><br/>
+                        <select ng-model="maquinaria.idTipo" name="tipoMaquinaria" id="tipoMaquinaria" class="field" required>
+                            <option value="">Seleccione...</option>
+                            <option value="1">Grúa</option>
+                            <option value="2">Excavadora</option>
+                            <option value="3">Herramienta de mano</option>
+                        </select></td>
+
+                        <td><label for="proveedor">Proveedor*</label><br/>
+                        <select ng-model="maquinaria.idProveedor" name="proveedor" id="proveedor" class="field" required>
+                            <option value="">Seleccione...</option>
+                            <option value="1432">Proveedor1</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td><label for="nombre">Nombre*</label><br/>
+                        <input ng-model="maquinaria.nombre" id="nombre" name="nombre" type="text" class="field" placeholder="Nombre" maxlength="20" required><br/></td>
+
+                        <td><label for="estado">Estado*</label><br/>
+                        <select ng-model="maquinaria.estado" name="estado" id="estado" class="field" required>
+                        <option value="">Seleccione...</option>
+                            <option value="Disponible">Disponible</option>
+                            <option value="Ocupado">Ocupado</option>
+                        </select>
+                    </tr>
+                    <tr>
+                        <td ng-show="maquinaria.estado == 'Ocupado'"><label id="manipuladorLabel" for="manipulador">Manipulador*</label><br/>
+                        <select ng-model="maquinaria.idManipulador" name="manipulador" id="manipulador" class="field">
+                            <option value="">Seleccione...</option>
+                            <option value="1">Ronnie Dave Cañas Pineda</option>
+                        </select>
+                    </tr>
+                </table>
+                <center><button ng-click="modificar()" class="boton">Modificar</button>
+                <button ng-click="eliminar()" class="boton">Eliminar</button>
+                <button type="reset" ng-click="limpiar()" class="boton">limpiar</button></center>
+            </form>
+        </article>
+    </section>
+    </body>
+</html>

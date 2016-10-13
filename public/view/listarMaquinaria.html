@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+
+<html ng-app="listarMaquinariaApp">
+    <head>
+        <meta charset="UTF-8">
+        <title>Listar Maquinaria</title>
+        <link href = "../css/style.css" rel = "stylesheet" type = "text/css">
+        <link rel="shortcut icon" type="image/x-icon" href="../images/icon.png" />
+
+        <script type="text/javascript" src="../js/angular.min.js"></script>
+        <script type="text/javascript" src="../js/listarMaquinariaController.js"></script>
+    </head>
+
+    <body ng-controller="listarMaquinariaController">
+        <div ng-include="'menuAndFooter.html'"></div>
+        <section class="wrapper">
+            <!--contenido de la página-->
+            <article id="container">
+                </br>
+                <h2>Lista de Maquinaria</h2>
+                <hr>
+                <center><table>
+                    <thead>
+                        <tr>
+                            <td ng-show="repos == null" class="lista"><strong> Identificador </strong></td>
+                            <td class="lista"><strong> Tipo </strong></td>
+                            <td class="lista"><strong> Proveedor </strong></td>
+                            <td class="lista"><strong> Nombre </strong></td>
+                            <td class="lista"><strong> Estado </strong></td>
+                            <td class="lista"><strong> Manipulador </strong></td>
+                        </tr>
+                    </thead>
+                    <tbody ng-show="maquinas.length > 0">
+                        <tr ng-repeat="maquina in maquinas">
+                            <td class="lista"> {{maquina.id}} </td>
+                            <td class="lista"> {{maquina.idTipo}} </td>
+                            <td class="lista"> {{maquina.idProveedor}} </td>
+                            <td class="lista"> {{maquina.nombre}} </td>
+                            <td class="lista"> {{maquina.estado}} </td>
+                            <td ng-show="maquina.idManipulador != 0" class="lista"> {{maquina.idManipulador}} </td>
+                        </tr>
+                    </tbody>
+                </table></center>
+            </article>
+        </section>
+    </body>
+</html>

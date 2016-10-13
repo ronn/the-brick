@@ -1,0 +1,150 @@
+*{
+    font-family: Arial;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body{
+    background-color: #E6E6FA;
+    padding: 0;
+    margin: 0 0 65px; /* bottom = footer height */
+}
+
+.wrapper {
+  min-height: 100%;
+}
+
+#logotipo{
+	height: 160px;
+	width: 100%;
+}
+
+#mainmenu{
+	position: absolute;
+	width: 100%;
+	background-color: #4169E1;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	box-shadow: 6px 6px 6px rgba(0,0,0,0.5);
+}
+
+#mainmenu li{
+	list-style: none;
+	display: inline-block;
+	padding: 15px 10px;
+	margin-left: -25px;
+}
+
+#mainmenu li a{
+	color: #FFFFFF;
+	text-decoration: none;
+	font-size: 24px;
+	font-weight: bold;
+	padding: 20px 10px;
+	text-shadow:5px 5px 7px rgba(0,0,0,0.5);
+}
+
+#mainmenu li a:hover{
+	background-color: #FF5105;
+}
+
+#mainmenu li ul{
+	display: none;
+	position: absolute;
+}
+
+#mainmenu li:hover ul{
+	display: block;
+	position: absolute;
+	background-color: #4169E1;
+	box-shadow: 4px 4px rgba(0,0,0,0); 	
+}
+
+.content{
+	width: 850px;
+	margin: auto;
+	height: auto;
+	min-height:100%;
+}
+
+#container{
+	margin-top: 55px;
+    margin: 0 auto;
+	width: 850px;
+}
+
+h2{
+	font-size: 48px;
+	color: #4169E1;
+	margin-top: 100px;
+	margin-bottom: 1px;
+}
+
+#createUserForm{
+	font-weight: bold;
+	margin: 0 auto;
+	padding: 40px;
+	font-size: 17px;
+}
+label{
+	margin-left: 100px;
+}
+
+.field{
+	margin-left: 100px;
+	background: #eee;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 5px;
+	width: 200px;
+
+	border-radius: 5px;
+}
+
+.field:focus{
+	background:#fff;	
+	outline-color: #FF5105;
+	box-shadow: 0 0 10px #24607f;
+}
+
+.boton {
+	font-weight: bold;
+	color:#fff;
+	background: #ff8a00;
+	padding: 10px;
+	margin-top: 20px;
+	width: 100px;
+	margin-right: 20px;
+
+	border-radius: 5px;
+}
+
+.boton:hover{
+	background-color: #FF5105;
+}
+
+.boton:focus{
+	background: #FF0000;
+}
+
+.lista{
+    border-style: solid;
+    border-color: #000000;
+    border-width: 1px;
+    text-align: center;
+    width: 220px;
+}
+
+.footerpage{
+    font-size: 12px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 65px;
+    width: 100%;
+    text-align: center;
+}

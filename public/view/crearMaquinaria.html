@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html ng-app="crearMaquinariaApp">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Crear Maquinaria</title>
+        <link href = "../css/style.css" rel = "stylesheet" type = "text/css">
+        <link rel="shortcut icon" type="image/x-icon" href="../images/icon.png" />
+
+        <script type="text/javascript" src="../js/angular.min.js"></script>
+        <script type="text/javascript" src="../js/crearMaquinariaController.js"></script>
+    </head>
+
+    <body ng-controller="crearMaquinariaController">
+    <div ng-include="'menuAndFooter.html'"></div>
+    <section class="wrapper">
+        <!--contenido de la página-->
+        <article id="container">
+        </br>
+            <h2>Crear Maquinaria</h2>
+            <hr>
+            <h3 id="respuesta"></h3>
+            <!--Formulario-->
+            <form id="createMaquinariaForm" onsubmit="return false">
+                <table><!--Tabla para dividir en columnas-->
+                    <tr><!--Columnas-->
+                        <td><label for="tipoMaquinaria">Tipo de Maquinaria*</label><br/>
+                        <select ng-model="maquinaria.idTipo" name="tipoMaquinaria" id="tipoMaquinaria" class="field" required>
+	                        <option value="">Seleccione...</option>
+	                        <option value="1">Grúa</option>
+	                        <option value="2">Excavadora</option>
+	                        <option value="3">Herramienta de mano</option>
+                        </select></td>
+
+                        <td><label for="proveedor">Proveedor*</label><br/>
+                        <select ng-model="maquinaria.idProveedor" name="proveedor" id="proveedor" class="field" required>
+                            <option value="">Seleccione...</option>
+                            <option value="1432">Proveedor1</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td><label for="nombre">Nombre*</label><br/>
+                        <input ng-model="maquinaria.nombre" id="nombre" name="nombre" type="text" class="field" placeholder="Nombre" maxlength="20" required><br/></td>
+
+						<td><label for="estado">Estado*</label><br/>
+                        <select ng-model="maquinaria.estado" name="estado" id="estado" class="field" required>
+                        <option value="">Seleccione...</option>
+                            <option value="Disponible">Disponible</option>
+                            <option value="Ocupado">Ocupado</option>
+                        </select>
+                    </tr>
+                    <tr>
+                    	<td ng-show="maquinaria.estado == 'Ocupado'"><label id="manipuladorLabel" for="manipulador">Manipulador*</label><br/>
+                    	<select ng-model="maquinaria.idManipulador" name="manipulador" id="manipulador" class="field">
+	                        <option value="">Seleccione...</option>
+	                        <option value="1">Ronnie Dave Cañas Pineda</option>
+                        </select>
+                    </tr>
+                </table>
+                <center><button ng-click="imprimir()" value="Crear" class="boton">Crear</button>
+                <input type="reset" value="Limpiar" class="boton"></center>
+            </form>
+        </article>
+    </section>
+    </body>
+</html>
